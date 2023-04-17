@@ -8,7 +8,7 @@ const { JWT_SECRET_KEY } = require('../utils/constants');
 
 const registerUser = async(req, res, next) => {
     try {
-        let password = await bcrypt.hash(req.body.password, SALT_ROUNDS);
+        let password = await bcrypt.hash(req.body.password, Number(SALT_ROUNDS));
          let user = new User({
             name: req.body.name,
             email: req.body.email,
